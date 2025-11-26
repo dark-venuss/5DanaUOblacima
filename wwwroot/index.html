@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canteen Reservation System</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav-brand">Canteen Reservation System</div>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link active" data-page="students">Students</a></li>
+                <li><a href="#" class="nav-link" data-page="canteens">Canteens</a></li>
+                <li><a href="#" class="nav-link" data-page="reservations">Reservations</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+            <section id="students-page" class="page active">
+                <h2>Students Management</h2>
+                <div class="form-section">
+                    <h3>Add New Student</h3>
+                    <form id="studentForm" class="form">
+                        <input type="text" id="studentName" placeholder="Full Name" required>
+                        <input type="email" id="studentEmail" placeholder="Email" required>
+                        <input type="checkbox" id="studentIsAdmin" class="checkbox">
+                        <label for="studentIsAdmin">Is Admin</label>
+                        <button type="submit" class="btn btn-primary">Add Student</button>
+                    </form>
+                </div>
+                <div class="list-section">
+                    <h3>Students List</h3>
+                    <table id="studentsList" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Admin</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="canteens-page" class="page">
+                <h2>Canteens Management</h2>
+                <div class="form-section">
+                    <h3>Add New Canteen</h3>
+                    <form id="canteenForm" class="form">
+                        <input type="text" id="canteenName" placeholder="Canteen Name" required>
+                        <input type="text" id="canteenLocation" placeholder="Location" required>
+                        <input type="number" id="canteenCapacity" placeholder="Capacity" min="1" required>
+                        <div class="working-hours-section">
+                            <h4>Working Hours</h4>
+                            <div id="workingHoursContainer">
+                                <div class="working-hours-item">
+                                    <select class="meal-type" required>
+                                        <option value="">Select Meal</option>
+                                        <option value="breakfast">Breakfast</option>
+                                        <option value="lunch">Lunch</option>
+                                        <option value="dinner">Dinner</option>
+                                    </select>
+                                    <input type="time" class="from-time" placeholder="From" required>
+                                    <input type="time" class="to-time" placeholder="To" required>
+                                    <button type="button" class="btn btn-small btn-danger remove-time">Remove</button>
+                                </div>
+                            </div>
+                            <button type="button" id="addWorkingHours" class="btn btn-small btn-secondary">+ Add Meal Time</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Canteen</button>
+                    </form>
+                </div>
+                <div class="list-section">
+                    <h3>Canteens List</h3>
+                    <table id="canteensList" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Location</th>
+                                <th>Capacity</th>
+                                <th>Hours</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <section id="reservations-page" class="page">
+                <h2>Reservations Management</h2
+                <div class="form-section">
+                    <h3>Make New Reservation</h3>
+                    <form id="reservationForm" class="form">
+                        <select id="reservationStudentId" required>
+                            <option value="">Select Student</option>
+                        </select>
+                        <select id="reservationCanteenId" required>
+                            <option value="">Select Canteen</option>
+                        </select>
+                        <input type="date" id="reservationDate" required>
+                        <input type="time" id="reservationTime" required>
+                        <input type="number" id="reservationDuration" placeholder="Duration (minutes)" min="30" max="120" value="30" required>
+                        <button type="submit" class="btn btn-primary">Make Reservation</button>
+                    </form>
+                </div>
+                <div class="list-section">
+                    <h3>Reservations List</h3>
+                    <table id="reservationsList" class="table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student</th>
+                                <th>Canteen</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+        <div id="alert" class="alert"></div>
+    </div>
+    <script src="/js/api.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
