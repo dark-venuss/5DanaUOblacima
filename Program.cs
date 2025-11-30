@@ -42,7 +42,9 @@ builder.Services.AddCors(options =>
     });
 });
 
-builder.WebHost.UseUrls("http://localhost:8080");
+// In Docker, bind to all interfaces; locally, use localhost
+var urls = Environment.GetEnvironmentVariable("ASPNETCORE_URLS") ?? "http://localhost:8080";
+builder.WebHost.UseUrls(urls);
 
 var app = builder.Build();
 

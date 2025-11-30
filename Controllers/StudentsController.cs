@@ -44,7 +44,7 @@ namespace SofijaFesis_5DanaUOblacima.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateStudent(int id, [FromBody] UpdateStudentDTO updateStudentDTO)
+        public async Task<IActionResult> UpdateStudent(string id, [FromBody] UpdateStudentDTO updateStudentDTO)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -57,7 +57,7 @@ namespace SofijaFesis_5DanaUOblacima.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteStudent(int id)
+        public async Task<IActionResult> DeleteStudent(string id)
         {
             var result = await _studentService.DeleteStudentAsync(id);
             if (!result)

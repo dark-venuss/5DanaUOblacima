@@ -1,0 +1,40 @@
+bin/
+obj/
+.git/
+.gitignore
+*.md
+*.pdb
+*.exe
+
+# Exclude pre-built DLLs at root (keep wwwroot)
+*.dll
+*.deps.json
+*.runtimeconfig.json
+*.staticwebassets.endpoints.json
+*.staticwebassets.runtime.json
+
+# Solution file can cause issues
+*.sln
+
+Dockerfile
+docker-compose.yml
+.dockerignore
+*.user
+*.suo
+.vs/
+.vscode/
+
+# Language resource folders
+cs/
+de/
+es/
+fr/
+it/
+ja/
+ko/
+pl/
+pt-BR/
+ru/
+tr/
+zh-Hans/
+zh-Hant/
